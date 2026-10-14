@@ -1,0 +1,225 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Palatino Linotype', Palatino, serif;
+}
+
+body {
+    color: #fff;
+    background: #232f72;
+}
+
+.emergency-banner {
+    min-height: 40px;
+    padding: 8px 16px;
+    color: #fff;
+    background: #b90c2e;
+    text-align: center;
+    font-weight: bold;
+}
+
+.emergency-banner a {
+    color: #ffd700;
+}
+
+.hospital-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    gap: 20px;
+    min-height: 220px;
+    padding: 10px 24px;
+    background: #fff;
+}
+
+.hospital-logo,
+.municipal-logo {
+    height: auto;
+    object-fit: contain;
+    flex: 0 0 auto;
+}
+
+.hospital-logo {
+    width: min(20vw, 300px);
+}
+
+.municipal-logo {
+    width: min(13vw, 200px);
+}
+
+.hospital-name {
+    width: min(58vw, 800px);
+    max-height: 150px;
+    object-fit: contain;
+}
+
+.nav {
+    display: flex;
+    align-items: center;
+    min-height: 48px;
+    background: #121358;
+}
+
+.nav_bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    gap: 0 8px;
+    width: 100%;
+    padding: 0 12px;
+    list-style: none;
+}
+
+.nav_bar li {
+    padding: 12px 16px;
+    text-align: center;
+    white-space: nowrap;
+}
+
+.nav_bar a {
+    color: inherit;
+    text-decoration: none;
+}
+
+.nav_bar a:hover,
+.nav_bar li:hover,
+.current-page {
+    color: #ffd700;
+}
+
+.doctors-page {
+    min-height: 55vh;
+    padding: 48px max(6vw, 24px) 64px;
+}
+
+.page-heading {
+    margin: 0 auto 32px;
+    text-align: center;
+}
+
+.eyebrow,
+.specialty {
+    color: #ffd700;
+    font-weight: bold;
+}
+
+.page-heading h1 {
+    margin: 8px 0;
+    font-size: clamp(2rem, 4vw, 3rem);
+}
+
+.page-heading > p:last-child {
+    color: #eef0ff;
+    font-size: 1.05rem;
+}
+
+.doctor-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 24px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.doctor-card {
+    overflow: hidden;
+    border: 1px solid rgb(255 255 255 / 65%);
+    border-radius: 12px;
+    background: #18225e;
+    box-shadow: 0 8px 22px rgb(0 0 0 / 18%);
+}
+
+.doctor-card img {
+    display: block;
+    width: 100%;
+    height: 260px;
+    padding: 8px;
+    background: #18225e;
+    object-fit: contain;
+    object-position: center;
+}
+
+.doctor-info {
+    padding: 22px;
+}
+
+.doctor-info h2 {
+    margin: 6px 0 12px;
+    font-size: 1.45rem;
+}
+
+.doctor-info > p:last-child {
+    color: #eef0ff;
+    line-height: 1.55;
+}
+
+.treatments-link {
+    display: block;
+    width: fit-content;
+    margin: 32px auto 0;
+    padding: 12px 20px;
+    border-radius: 6px;
+    color: #121358;
+    background: #ffd700;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.footer {
+    padding: 20px 12px;
+    background: #07114f;
+    text-align: center;
+    font-family: Arial, sans-serif;
+}
+
+@media (max-width: 800px) {
+    .hospital-header {
+        min-height: 150px;
+    }
+
+    .municipal-logo {
+        width: 13vw;
+    }
+
+    .hospital-logo {
+        width: 20vw;
+    }
+
+    .hospital-name {
+        width: min(58vw, 520px);
+    }
+
+    .doctor-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 560px) {
+    .hospital-header {
+        gap: 8px;
+        min-height: 110px;
+        padding: 8px;
+    }
+
+    .municipal-logo {
+        width: 13vw;
+    }
+
+    .hospital-logo {
+        width: 20vw;
+    }
+
+    .hospital-name {
+        width: calc(100% - 145px);
+    }
+
+    .doctor-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .doctors-page {
+        padding: 36px 18px 48px;
+    }
+}
