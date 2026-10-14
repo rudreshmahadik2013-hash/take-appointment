@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Review Appointment | Maru Charitable Hospital</title>
+    <link rel="stylesheet" href="../css/appoint.css">
+    <script src="../js/appointment-review.js" defer></script>
+</head>
+<body>
+    <div class="msg-for-patient">
+        <span>24/7 Emergency Services — Dial <a href="tel:9034423424">9034423424</a> for immediate assistance</span>
+    </div>
+    <header class="head_logo">
+        <a href="index.html" aria-label="Maru Hospital home"><img src="../asset/maru_hospital_signboard_style_logo.png" alt="Maru Hospital logo" class="main_logo"></a>
+        <a href="index.html" aria-label="Maru Charitable Hospital home"><img src="../asset/maru_charitable_hospital_bigname.png" alt="Maru Charitable Hospital &amp; Research Centre" class="sign"></a>
+        <img src="https://aquaptax.mcgm.gov.in/aqua/assets/img/mcgm_logo.png" alt="Brihanmumbai Municipal Corporation" class="right_logo">
+    </header>
+    <nav class="nav" aria-label="Main navigation">
+        <ul class="nav_bar">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="aboutus.html">About Us</a></li>
+            <li><a href="doctors.html">Our Doctors</a></li>
+            <li class="current-page"><a href="appointment.html" aria-current="page">Appointment</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
+            <li><a href="treatment.html">Treatments</a></li>
+        </ul>
+    </nav>
+
+    <main class="appointment-page">
+        <header class="page-heading"><h1>Review Appointment Details</h1><p>Please check the details below.</p></header>
+        <section class="appointment-form-section" aria-labelledby="patient-details-title">
+            <section class="review-group" aria-labelledby="patient-details-title">
+                <h2 id="patient-details-title">Patient Details</h2>
+                <dl class="summary-list">
+                    <div><dt>Full name</dt><dd id="review-name"></dd></div>
+                    <div><dt>Email address</dt><dd id="review-email"></dd></div>
+                    <div><dt>Contact number</dt><dd id="review-phone"></dd></div>
+                    <div><dt>City or locality</dt><dd id="review-location"></dd></div>
+                </dl>
+            </section>
+            <section class="review-group" aria-labelledby="appointment-details-title">
+                <h2 id="appointment-details-title">Appointment Details</h2>
+                <dl class="summary-list">
+                    <div><dt>Department</dt><dd id="review-speciality"></dd></div>
+                    <div><dt>Preferred doctor</dt><dd id="review-doctor"></dd></div>
+                    <div><dt>Preferred date</dt><dd id="review-date"></dd></div>
+                    <div><dt>Preferred time</dt><dd id="review-time"></dd></div>
+                    <div class="detail-wide"><dt>Reason for visit</dt><dd id="review-notes"></dd></div>
+                </dl>
+            </section>
+            <div class="review-actions">
+                <button type="button" class="edit-button" id="edit-appointment">Back / Edit</button>
+                <button type="button" class="book-button" id="confirm-appointment">Confirm Request</button>
+            </div>
+        </section>
+        <p class="appointment-help">For assistance, call <a href="tel:9034423424">9034423424</a> or visit Maru Charitable Hospital, Parel, Mumbai.</p>
+    </main>
+
+    <footer class="footer"><p>© Maru Charitable Hospital &amp; Research Centre — Parel, Mumbai</p></footer>
+</body>
+</html>

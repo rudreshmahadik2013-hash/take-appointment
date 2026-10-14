@@ -5,38 +5,54 @@
     const specialty = document.getElementById("speciality");
     const doctor = document.getElementById("doctor");
     const date = document.getElementById("appointment-date");
-    const reviewPanel = document.getElementById("review-panel");
-    const successPanel = document.getElementById("success-panel");
     const alertBox = document.getElementById("form-alert");
-    const summary = document.getElementById("summary-list");
+    const consent = document.getElementById("consent");
     const doctorsBySpecialty = {
         "Dental Care": ["Dr R.K. Mehta"],
         "Eye Care": ["Dr Naresh Trehan"],
         "Ear, Nose & Throat (ENT)": ["Dr Rupesh Bhat"]
     };
     const fields = Array.from(form.querySelectorAll("input:not([type=checkbox]), select, textarea"));
+    const storageKey = "maruAppointment";
 
-    const today = new Date();
-    const localToday = new Date(today.getTime() - today.getTimezoneOffset() * 60000).toISOString().slice(0, 10);
+    const now = new Date();
+    const localToday = new Date(now.getTime() - now.getTimezoneOffset() * 60000).toISOString().slice(0, 10);
     date.min = localToday;
-
-    const query = new URLSearchParams(window.location.search);
-    const requestedDepartment = query.get("department");
-    if (requestedDepartment && Array.from(specialty.options).some((option) => option.value === requestedDepartment)) {
-        specialty.value = requestedDepartment;
-    }
 
     function updateDoctorOptions() {
         doctor.replaceChildren();
-        const options = doctorsBySpecialty[specialty.value];
-        doctor.add(new Option(options ? "Choose a doctor" : "Choose a department first", ""));
-        doctor.disabled = !options;
-        (options || []).forEach((name) => doctor.add(new Option(name, name)));
-        doctor.value = "";
+        const names = doctorsBySpecialty[specialty.value];
+        doctor.add(new Option(names ? "Select a doctor" : "Select a department first", ""));
+        doctor.disabled = !names;
+        (names || []).forEach((name) => doctor.add(new Option(name, name)));
     }
 
     specialty.addEventListener("change", updateDoctorOptions);
+
+    let savedData;
+    try {
+        savedData = JSON.parse(sessionStorage.getItem(storageKey) || "null");
+    } catch (error) {
+        sessionStorage.removeItem(storageKey);
+    }
+
+    const requestedDepartment = new URLSearchParams(window.location.search).get("department");
+    if (savedData) {
+        specialty.value = savedData.speciality || "";
+    } else if (requestedDepartment && Array.from(specialty.options).some((option) => option.value === requestedDepartment)) {
+        specialty.value = requestedDepartment;
+    }
     updateDoctorOptions();
+
+    if (savedData) {
+        fields.forEach((field) => {
+            if (field.name !== "speciality" && field.name !== "doctor" && savedData[field.name] !== undefined) {
+                field.value = savedData[field.name];
+            }
+        });
+        doctor.value = savedData.doctor || "";
+        consent.checked = Boolean(savedData.consent);
+    }
 
     function errorFor(field) {
         return document.getElementById(`${field.id.replace("patient-", "").replace("appointment-", "")}-error`);
@@ -50,6 +66,7 @@
         else if (field.validity.tooShort && field.type === "tel") error = "Enter a phone number with at least 7 characters.";
         else if (field.validity.tooShort) error = "Please enter at least 2 characters.";
         else if (field.type === "date" && field.value && field.value < localToday) error = "Choose today or a future date.";
+
         if (message) message.textContent = error;
         field.setAttribute("aria-invalid", String(Boolean(error)));
         return !error;
@@ -67,61 +84,23 @@
         });
     });
 
-    function values() {
-        return new FormData(form);
-    }
-
-    function showReview(data) {
-        const rows = [
-            ["Full name", data.get("name")], ["Email", data.get("email")],
-            ["Contact number", data.get("phone")], ["City or locality", data.get("location")],
-            ["Department", data.get("speciality")], ["Preferred doctor", data.get("doctor")],
-            ["Preferred date", new Date(`${data.get("date")}T00:00:00`).toLocaleDateString(undefined, { year: "numeric", month: "long", day: "numeric" })],
-            ["Preferred time", data.get("time")], ["Visit notes", data.get("notes") || "None"]
-        ];
-        summary.replaceChildren(...rows.map(([label, value]) => {
-            const item = document.createElement("div");
-            const term = document.createElement("dt");
-            const description = document.createElement("dd");
-            term.textContent = label;
-            description.textContent = value;
-            item.append(term, description);
-            return item;
-        }));
-        reviewPanel.hidden = false;
-        reviewPanel.scrollIntoView({ behavior: "smooth", block: "nearest" });
-    }
-
     form.addEventListener("submit", (event) => {
         event.preventDefault();
-        const invalid = fields.filter((field) => !validateField(field));
-        const consent = document.getElementById("consent");
+        const invalidFields = fields.filter((field) => !validateField(field));
         const consentError = document.getElementById("consent-error");
         consentError.textContent = consent.checked ? "" : "Please agree so our team can contact you about this request.";
         consent.setAttribute("aria-invalid", String(!consent.checked));
-        if (invalid.length || !consent.checked) {
-            reviewPanel.hidden = true;
+
+        if (invalidFields.length || !consent.checked) {
             alertBox.textContent = "Please check the highlighted fields and try again.";
             alertBox.hidden = false;
-            (invalid[0] || consent).focus();
-            alertBox.focus();
+            (invalidFields[0] || consent).focus();
             return;
         }
-        alertBox.hidden = true;
-        showReview(values());
-    });
 
-    document.getElementById("edit-request").addEventListener("click", () => {
-        reviewPanel.hidden = true;
-        document.getElementById("patient-name").focus();
-    });
-
-    document.getElementById("confirm-request").addEventListener("click", () => {
-        reviewPanel.hidden = true;
-        form.hidden = true;
-        document.getElementById("form-title").hidden = true;
-        document.querySelector(".required-note").hidden = true;
-        successPanel.hidden = false;
-        successPanel.focus();
+        const appointment = Object.fromEntries(new FormData(form).entries());
+        appointment.consent = consent.checked;
+        sessionStorage.setItem(storageKey, JSON.stringify(appointment));
+        window.location.href = "appointment-review.html";
     });
 })();

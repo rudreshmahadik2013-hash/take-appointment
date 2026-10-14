@@ -123,8 +123,7 @@ body {
 }
 
 .appointment-form-section > h2,
-.review-panel h2,
-.success-panel h2 {
+.review-group h2 {
     margin-bottom: 5px;
     color: #121358;
     font-size: 1.5rem;
@@ -222,15 +221,7 @@ body {
     background: #fff1f1;
 }
 
-.review-panel,
-.success-panel {
-    margin-top: 22px;
-    padding-top: 19px;
-    border-top: 1px solid #c9ccda;
-}
-
-.review-panel > p,
-.success-panel p { margin: 5px 0; color: #3e4659; }
+.review-group + .review-group { margin-top: 20px; padding-top: 18px; border-top: 1px solid #c9ccda; }
 
 .summary-list {
     display: grid;
@@ -242,7 +233,10 @@ body {
 .summary-list div { min-width: 0; }
 .summary-list dt { color: #5c6270; font-size: .86rem; }
 .summary-list dd { margin-top: 2px; color: #202849; font-weight: bold; overflow-wrap: anywhere; }
-.review-actions { display: flex; flex-wrap: wrap; gap: 10px; }
+.detail-wide { grid-column: 1 / -1; }
+.review-actions { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 20px; }
+.success-message { text-align: center; }
+.success-message h1 { color: #121358; font-size: 1.6rem; }
 .appointment-help a { color: #ffd700; font-weight: bold; }
 .appointment-help { margin: 20px auto 0; text-align: center; color: #eef0ff; }
 .appointment-help a { color: #ffd700; }
@@ -280,4 +274,5 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
     .field-wide { grid-column: auto; }
     .page-heading p { font-size: .95rem; }
     .review-actions button { flex: 1; }
+    .detail-wide { grid-column: auto; }
 }
