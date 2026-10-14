@@ -1,0 +1,250 @@
+* {
+    padding: 0px;
+    margin: 0px;
+    font-family: 'Palatino Linotype', 'Palatino', serif;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #232F72;
+    color: white;
+}
+
+.msg-for-patient {
+    background-color: #b90c2e;
+    margin: 0px 25px;
+    color: white;
+    font-weight: bold;
+    text-align: center;
+    height: 2.5rem;
+    padding: 8px 10px;
+    font-size: 20px;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.msg-for-patient span {
+    display: inline-block;
+    width: 100%;
+    animation: scroll-left 10s linear infinite;
+}
+
+@keyframes scroll-left {
+    from { transform: translateX(100%); }
+    to { transform: translateX(-100%); }
+}
+
+.msg-for-patient a {
+    color: #FFD700;
+}
+
+.head_logo {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    background-color: white;
+    min-height: 260px;
+}
+
+.main_logo {
+    display: flex;
+    height: 200px;
+    width: 250px;
+    object-fit: contain;
+}
+
+.sign {
+    display: flex;
+    height: 170px;
+    width: 800px;
+    object-fit: contain;
+}
+
+.right_logo {
+    display: flex;
+    height: 200px;
+    width: 250px;
+    object-fit: contain;
+}
+
+.nav {
+    display: flex;
+    background-color: #121358;
+    min-height: 48px;
+    width: 100%;
+}
+
+.nav_bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    gap: 0 8px;
+    width: 100%;
+    padding: 0 12px;
+    list-style: none;
+}
+
+.nav_bar li {
+    padding: 12px 16px;
+    text-align: center;
+    white-space: nowrap;
+}
+
+.nav_bar li a {
+    color: white;
+    text-decoration: none;
+}
+
+.nav_bar li a:hover,
+.nav_bar .about a {
+    color: #FFD700;
+}
+
+.nav_bar li:hover {
+    color: #FFD700;
+    text-shadow:
+        0 0 5px #FFD700,
+        0 0 10px #FFD700,
+        0 0 20px #FFA500,
+        0 0 30px #FFA500,
+        0 0 40px #FF8C00;
+    font-weight: bold;
+}
+
+.about-us {
+    margin: 22px 25px;
+    padding: 12px;
+    background-color: #232F72;
+    border: 2px solid #FFD700;
+    border-radius: 10px;
+}
+
+.about-title {
+    min-height: 48px;
+    padding: 8px;
+    background-color: #121358;
+    border-radius: 10px;
+    text-align: center;
+    font-size: 28px;
+    color: #FFD700;
+}
+
+.about-content {
+    padding: 25px 20px;
+    line-height: 1.6;
+    font-weight: bold;
+}
+
+.about-content h2 {
+    color: #FFD700;
+    font-size: 25px;
+    margin-bottom: 8px;
+}
+
+.about-content p {
+    font-size: 18px;
+    margin-bottom: 16px;
+}
+
+.about-content p:last-child {
+    margin-bottom: 0px;
+}
+
+.history-section {
+    margin: 22px 25px;
+    padding: 12px;
+    background-color: #232F72;
+    border: 2px solid #FFD700;
+    border-radius: 10px;
+}
+
+.history-content {
+    padding: 25px 20px;
+    line-height: 1.6;
+    font-weight: bold;
+}
+
+.history-content p {
+    font-size: 18px;
+    margin-bottom: 16px;
+}
+
+.history-content p:last-child {
+    margin-bottom: 0px;
+}
+.footer {
+    background-color: #07114f;
+    text-align: center;
+    padding: 20px 0;
+}
+
+.footer p {
+    color: white;
+    font-size: 16px;
+    font-family: Arial, sans-serif;
+}
+
+@media (max-width: 900px) {
+    .head_logo {
+        min-height: 180px;
+        padding: 10px;
+    }
+
+    .main_logo,
+    .right_logo {
+        height: 130px;
+        width: 130px;
+    }
+
+    .sign {
+        height: 130px;
+        width: 60%;
+    }
+}
+
+@media (max-width: 600px) {
+    .msg-for-patient {
+        margin: 0px;
+        font-size: 15px;
+    }
+
+    .head_logo {
+        flex-wrap: wrap;
+    }
+
+    .main_logo,
+    .right_logo {
+        height: 90px;
+        width: 90px;
+    }
+
+    .sign {
+        order: 3;
+        width: 100%;
+        height: 90px;
+    }
+
+    .nav_bar {
+        justify-content: center;
+        gap: 0 8px;
+        padding: 0 12px;
+    }
+
+    .nav_bar li {
+        padding: 10px 12px;
+    }
+
+    .nav_bar li a {
+        font-size: inherit;
+    }
+
+    .about-us {
+        margin: 15px 10px;
+    }
+
+    .about-content {
+        padding: 20px 10px;
+    }
+}
+
