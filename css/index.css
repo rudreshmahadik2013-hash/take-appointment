@@ -220,6 +220,20 @@ iframe{
   #appoint_btn:hover{
     background-color: #6a0318;
   }
+  .home-appointment-link{
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background-color:#85041d;
+    color: white;
+    font-size: 30px;
+    border-radius: 10px;
+    height: 80px;
+    width: 300px;
+    margin:40px;
+    text-decoration: none;
+  }
+  .home-appointment-link:hover{background-color:#6a0318;}
   #doctor_btn{
     background-color:#232F72;
     color: white;

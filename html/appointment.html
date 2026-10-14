@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Appointment | Maru Charitable Hospital</title>
+    <link rel="stylesheet" href="../css/appoint.css">
+    <script src="../js/appointment.js" defer></script>
+</head>
+<body>
+    <div class="msg-for-patient">
+        <span>24/7 Emergency Services — Dial <a href="tel:9034423424">9034423424</a> for immediate assistance</span>
+    </div>
+    <header class="head_logo">
+        <a href="index.html" aria-label="Maru Hospital home"><img src="../asset/maru_hospital_signboard_style_logo.png" alt="Maru Hospital logo" class="main_logo"></a>
+        <a href="index.html" aria-label="Maru Charitable Hospital home"><img src="../asset/maru_charitable_hospital_bigname.png" alt="Maru Charitable Hospital &amp; Research Centre" class="sign"></a>
+        <img src="https://aquaptax.mcgm.gov.in/aqua/assets/img/mcgm_logo.png" alt="Brihanmumbai Municipal Corporation" class="right_logo">
+    </header>
+    <nav class="nav" aria-label="Main navigation">
+        <ul class="nav_bar">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="aboutus.html">About Us</a></li>
+            <li><a href="doctors.html">Our Doctors</a></li>
+            <li class="current-page"><a href="appointment.html" aria-current="page">Appointment</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
+            <li><a href="treatment.html">Treatments</a></li>
+        </ul>
+    </nav>
+
+    <main class="appointment-page">
+        <header class="page-heading">
+            <h1>Book an Appointment</h1>
+            <p>Please complete the form below. Our team will contact you to confirm your preferred visit.</p>
+        </header>
+        <section class="appointment-form-section" aria-labelledby="form-title">
+            <h2 id="form-title">Patient Details</h2>
+            <p class="required-note"><span aria-hidden="true">*</span> Required fields</p>
+            <form id="appointment-form" novalidate>
+                <div class="form-grid">
+                    <div class="field"><label for="patient-name">Full name <span aria-hidden="true">*</span></label><input id="patient-name" name="name" type="text" autocomplete="name" placeholder="Enter your full name" required minlength="2"><small class="field-error" id="name-error"></small></div>
+                    <div class="field"><label for="patient-email">Email address <span aria-hidden="true">*</span></label><input id="patient-email" name="email" type="email" autocomplete="email" placeholder="Enter your email address" required><small class="field-error" id="email-error"></small></div>
+                    <div class="field"><label for="patient-phone">Contact number <span aria-hidden="true">*</span></label><input id="patient-phone" name="phone" type="tel" autocomplete="tel" inputmode="tel" placeholder="Enter your contact number" required minlength="7"><small class="field-error" id="phone-error"></small></div>
+                    <div class="field"><label for="patient-location">City or locality <span aria-hidden="true">*</span></label><input id="patient-location" name="location" type="text" autocomplete="address-level2" placeholder="Enter your city or locality" required><small class="field-error" id="location-error"></small></div>
+                    <div class="field"><label for="speciality">Department <span aria-hidden="true">*</span></label><select id="speciality" name="speciality" required><option value="">Select a department</option><option value="Dental Care">Dental Care</option><option value="Eye Care">Eye Care</option><option value="Ear, Nose &amp; Throat (ENT)">Ear, Nose &amp; Throat (ENT)</option></select><small class="field-error" id="speciality-error"></small></div>
+                    <div class="field"><label for="doctor">Preferred doctor <span aria-hidden="true">*</span></label><select id="doctor" name="doctor" required disabled><option value="">Select a department first</option></select><small class="field-error" id="doctor-error"></small></div>
+                    <div class="field"><label for="appointment-date">Preferred date <span aria-hidden="true">*</span></label><input id="appointment-date" name="date" type="date" required><small class="field-error" id="date-error"></small></div>
+                    <div class="field"><label for="appointment-time">Preferred time <span aria-hidden="true">*</span></label><select id="appointment-time" name="time" required><option value="">Select a preferred time</option><option>09:00 AM</option><option>10:00 AM</option><option>11:00 AM</option><option>12:00 PM</option><option>02:00 PM</option><option>03:00 PM</option><option>04:00 PM</option></select><small class="field-error" id="time-error"></small></div>
+                    <div class="field field-wide"><label for="visit-notes">Reason for visit <span class="optional">(optional)</span></label><textarea id="visit-notes" name="notes" rows="3" placeholder="Add any details that may help our team"></textarea></div>
+                </div>
+                <div class="consent-row"><input id="consent" name="consent" type="checkbox" required><label for="consent">I agree that Maru Hospital may contact me about this appointment request. <span aria-hidden="true">*</span></label></div>
+                <small class="field-error consent-error" id="consent-error"></small>
+                <p class="form-alert" id="form-alert" role="alert" aria-live="assertive" tabindex="-1" hidden></p>
+                <button class="book-button" type="submit">Book Appointment</button>
+            </form>
+            <section class="review-panel" id="review-panel" aria-labelledby="review-title" hidden>
+                <h2 id="review-title">Review Appointment Details</h2>
+                <p>Please check your information before continuing.</p>
+                <dl class="summary-list" id="summary-list"></dl>
+                <div class="review-actions"><button type="button" class="edit-button" id="edit-request">Edit Details</button><button type="button" class="book-button" id="confirm-request">Confirm Request</button></div>
+            </section>
+            <div class="success-panel" id="success-panel" role="status" tabindex="-1" hidden>
+                <p>Appointment request submitted successfully.</p>
+            </div>
+        </section>
+        <p class="appointment-help">For assistance, call <a href="tel:9034423424">9034423424</a> or visit Maru Charitable Hospital, Parel, Mumbai.</p>
+    </main>
+
+    <footer class="footer"><p>© Maru Charitable Hospital &amp; Research Centre — Parel, Mumbai</p></footer>
+</body>
+</html>
