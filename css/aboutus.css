@@ -173,6 +173,49 @@ body {
 .history-content p:last-child {
     margin-bottom: 0px;
 }
+
+.location-section {
+    margin: 22px 25px;
+    padding: 12px;
+    background-color: #232F72;
+    border: 2px solid #FFD700;
+    border-radius: 10px;
+}
+
+.location-content {
+    padding: 25px 20px;
+    line-height: 1.6;
+    font-weight: bold;
+}
+
+.location-content > p {
+    margin-bottom: 16px;
+    font-size: 18px;
+}
+
+.location-map {
+    overflow: hidden;
+    border: 1px solid #FFD700;
+    border-radius: 10px;
+}
+
+.location-map iframe {
+    display: block;
+    width: 100%;
+    height: 360px;
+    border: 0;
+}
+
+.map-link {
+    display: inline-block;
+    margin-top: 16px;
+    color: #FFD700;
+}
+
+.map-link:hover {
+    color: white;
+}
+
 .footer {
     background-color: #07114f;
     text-align: center;
@@ -245,6 +288,18 @@ body {
 
     .about-content {
         padding: 20px 10px;
+    }
+
+    .location-section {
+        margin: 15px 10px;
+    }
+
+    .location-content {
+        padding: 20px 10px;
+    }
+
+    .location-map iframe {
+        height: 280px;
     }
 }
 
