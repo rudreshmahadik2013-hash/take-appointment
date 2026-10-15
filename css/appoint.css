@@ -122,8 +122,7 @@ body {
     background: #fff;
 }
 
-.appointment-form-section > h2,
-.review-group h2 {
+.appointment-form-section > h2 {
     margin-bottom: 5px;
     color: #121358;
     font-size: 1.5rem;
@@ -175,16 +174,6 @@ body {
 
 .field textarea { min-height: 85px; resize: vertical; }
 .field input:focus, .field select:focus, .field textarea:focus { outline: 2px solid #232f72; outline-offset: 1px; }
-.field [aria-invalid="true"] { border-color: #a32332; }
-.field select:disabled { color: #626b7b; background: #f0f0f0; }
-
-.field-error {
-    display: block;
-    margin-top: 4px;
-    color: #a32332;
-    font-size: .8rem;
-}
-
 .consent-row {
     display: flex;
     align-items: flex-start;
@@ -194,10 +183,7 @@ body {
 
 .consent-row input { width: 17px; height: 17px; flex: 0 0 auto; margin-top: 3px; accent-color: #121358; }
 .consent-row label { color: #343b4f; }
-.consent-error { margin-left: 26px; }
-
-.book-button,
-.edit-button {
+.book-button {
     min-height: 42px;
     padding: 9px 22px;
     border: 0;
@@ -210,37 +196,12 @@ body {
 
 .book-button { color: white; background: #85041d; }
 .book-button:hover { background: #6a0318; }
-.edit-button { border: 1px solid #121358; color: #121358; background: white; }
-.edit-button:hover { background: #f0f1f8; }
 
-.form-alert {
-    margin: 14px 0;
-    padding: 10px 12px;
-    border-left: 4px solid #a32332;
-    color: #78202b;
-    background: #fff1f1;
-}
-
-.review-group + .review-group { margin-top: 20px; padding-top: 18px; border-top: 1px solid #c9ccda; }
-
-.summary-list {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 12px 20px;
-    margin: 17px 0;
-}
-
-.summary-list div { min-width: 0; }
-.summary-list dt { color: #5c6270; font-size: .86rem; }
-.summary-list dd { margin-top: 2px; color: #202849; font-weight: bold; overflow-wrap: anywhere; }
-.detail-wide { grid-column: 1 / -1; }
-.review-actions { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 20px; }
 .success-message { text-align: center; }
 .success-message h1 { color: #121358; font-size: 1.6rem; }
 .appointment-help a { color: #ffd700; font-weight: bold; }
 .appointment-help { margin: 20px auto 0; text-align: center; color: #eef0ff; }
 .appointment-help a { color: #ffd700; }
-[hidden] { display: none !important; }
 
 .footer {
     padding: 20px 12px;
@@ -270,9 +231,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
 
 @media (max-width: 480px) {
     .msg-for-patient { font-size: .88rem; }
-    .form-grid, .summary-list { grid-template-columns: 1fr; }
+    .form-grid { grid-template-columns: 1fr; }
     .field-wide { grid-column: auto; }
     .page-heading p { font-size: .95rem; }
-    .review-actions button { flex: 1; }
-    .detail-wide { grid-column: auto; }
 }
